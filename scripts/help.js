@@ -69,9 +69,8 @@ module.exports = function(robot) {
 			res.send( emit );
 		} else { // send a private message to avoid annoying the shit out of everyone
 			if( res.message.user.room != null ) {
-				res.send( res.message.user.name + ': Check your PM' );
+				res.send( res.message.user.name + ': http://jhoff.mooo.com:8888/help' );
 			}
-			robot.send( res.message.user.name, emit );
 		}
 
 	});
