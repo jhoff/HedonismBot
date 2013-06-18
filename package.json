@@ -24,9 +24,9 @@
   },
 
   "dependencies": {
-    "hubot":         ">= 2.5.4",
-    "hubot-scripts": ">= 2.4.2",
-    "hubot-irc":     "0.1.13"
+    "hubot":         "2.x.x",
+    "hubot-scripts": "2.x.x",
+    "hubot-irc":     "0.x.x"
   },
 
   "engines": {
