@@ -79,7 +79,7 @@ module.exports = function(robot) {
 
 	robot.router.get( '/log', function(req, res) {
     child_process.exec('cat log/current',function(error, stdout, stderr){
-  		res.setHeader( 'content-type', 'text/html' );
+  		res.setHeader( 'content-type', 'text/plain' );
   		res.end( stdout );
     });
 	});
