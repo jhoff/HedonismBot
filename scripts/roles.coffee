@@ -35,7 +35,7 @@ module.exports = (robot) ->
             lastrole = ' and ' + lastrole
           if user.roles.join('').search(',') > -1
             joiner = '; '
-          msg.send "#{name} is #{user.roles.join(joiner) + lastrole}."
+          msg.send "#{name} is #{userroles.join(joiner) + lastrole}."
         else
           msg.send "#{name} is nothing to me."
       else if users.length > 1
