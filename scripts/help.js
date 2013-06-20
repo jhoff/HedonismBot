@@ -11,6 +11,8 @@
 //Notes:
 //  These commands are grabbed from comment blocks at the top of each file.
 
+var child_process = require('child_process');
+
 var helpContents = function( name, commands ) {
 	return "\
 		<html>\n\
@@ -75,6 +77,13 @@ module.exports = function(robot) {
 
 	});
 
+	robot.router.get( '/log', function(req, res) {
+    child_process.exec('cat log/current',function(error, stdout, stderr){
+  		res.setHeader( 'content-type', 'text/html' );
+  		res.end( stdout );
+    });
+	});
+
 	robot.router.get( '/help', function(req, res) {
 		var cmds = robot.helpCommands().slice(0);
 		for( var i in cmds ) {
@@ -82,7 +91,7 @@ module.exports = function(robot) {
 		}
 		var emit = "<p>" + cmds.join( "</p><p>" ) + "</p>";
 
-		emit = emit.replace( /hubot/ig, "<b>" + robot.name + "</b>" );
+		emit = emit.replace( /hubot/ig, "<b>:</b>" );
 
 		res.setHeader( 'content-type', 'text/html' );
 		res.end( helpContents( robot.name, emit ) );
