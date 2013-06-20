@@ -29,9 +29,13 @@ module.exports = (robot) ->
         user = users[0]
         user.roles = user.roles or [ ]
         if user.roles.length > 0
+          userroles = user.roles.slice(0)
+          lastrole = userroles.pop()
+          if userroles.length > 0
+            lastrole = ' and ' + lastrole
           if user.roles.join('').search(',') > -1
             joiner = '; '
-          msg.send "#{name} is #{user.roles.join(joiner)}."
+          msg.send "#{name} is #{user.roles.join(joiner) + lastrole}."
         else
           msg.send "#{name} is nothing to me."
       else if users.length > 1
