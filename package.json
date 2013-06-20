@@ -26,7 +26,8 @@
   "dependencies": {
     "hubot":         "2.x.x",
     "hubot-scripts": "2.x.x",
-    "hubot-irc":     "0.x.x"
+    "hubot-irc":     "0.x.x",
+    "xml2js":        "0.2.x"
   },
 
   "engines": {
