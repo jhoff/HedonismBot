@@ -91,7 +91,7 @@ module.exports = function(robot) {
 		}
 		var emit = "<p>" + cmds.join( "</p><p>" ) + "</p>";
 
-		emit = emit.replace( /hubot /i, "<b>:</b>" );
+		emit = emit.replace( /hubot /ig, "<b>:</b>" );
 
 		res.setHeader( 'content-type', 'text/html' );
 		res.end( helpContents( robot.name, emit ) );
