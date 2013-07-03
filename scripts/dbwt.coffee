@@ -11,8 +11,6 @@
 #     robot.adapter.command('MODE', msg.message.user.room, '-o', msg.message.user.name);
 
 rude = [
-    "%, you're ugly and I hate you",
-    "%'''s here... party's over",
     "%s mama is so fat, I took a picture of her last christmas, and its still printing",
     "%s mama is so fat, her belly button gets home 15 minutes before she does",
     "% may look like an idiot and talk like an idiot but don'''t let that fool you. He really is an idiot.",
