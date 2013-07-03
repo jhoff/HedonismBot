@@ -13,9 +13,12 @@
 rude = [
     "Hi %! You're looking especially dapper today :)",
     "Oh, glorious day, % has arrived!",
+    "%, I want you inside me",
     "%'s here! Consider the party started.",
     "My word, %, you are STUNNING today.",
-    "% is like, totes adorbs."
+    "%, I want to fall asleep inside you",
+    "% is like, totes adorbs.",
+    "Mmm, hello %, *smells index and middle finger*"
 ]
 
 module.exports = (robot) ->
