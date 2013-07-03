@@ -12,11 +12,11 @@
 
 rude = [
     "% may look like an idiot and talk like an idiot but don't let that fool you. He really is an idiot.",
-    "%'s mind is so open - so open that ideas simply pass through it.",
+    "%'s mind is so open -- so open that ideas simply pass through it.",
     "%, are you always this stupid or are you making a special effort today",
     "%, brains aren't everything. In fact in your case they're nothing",
     "% always finds himself lost in thought - it's an unfamiliar territory",
-    "% doesn't know the meaning of the word "fear" - but then again he doesn't know the meaning of most words",
+    "% doesn't know the meaning of the word 'fear' - but then again he doesn't know the meaning of most words",
     "%, I don't know what makes you so dumb but it really works",
     "%, I don't think you are a fool, but what's my opinion compared to that of thousands of others",
     "% does the work of three men: Larry, Curly & Moe",
