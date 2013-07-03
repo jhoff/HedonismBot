@@ -42,3 +42,4 @@ imageMe = (msg, query, animated, faces, cb) ->
         image  = msg.random images
         cb "#{image.unescapedUrl}#.png"
 
+# lol
