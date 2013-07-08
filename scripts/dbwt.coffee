@@ -47,5 +47,3 @@ module.exports = (robot) ->
     fucker = msg.random doug
     msg.send fucker
 
-  robot.hear /(^haha)/i, (response) ->
-    response.send "HAHAHAHAHAHAHA"
