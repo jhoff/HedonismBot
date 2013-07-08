@@ -26,7 +26,8 @@ rude = [
     "Welcome to the orgy, %! Don't just show up nude. That's a common mistake. You have to let nudity 'happen.'",
     "Hi, %. You can have your panties back now.",
     "Hey %, remember, awards become corroded, *friends* gather no dust.",
-    "Aerodynamically the % shouldn't be able to fly, but the % doesn't know that so it goes on flying anyway"
+    "Aerodynamically the % shouldn't be able to fly, but the % doesn't know that so it goes on flying anyway",
+    "%, sudo make me a sandwich!"
 ]
 
 doug = [
@@ -44,3 +45,6 @@ module.exports = (robot) ->
   robot.hear /(doug)/i, (msg) ->
     fucker = msg.random doug
     msg.send fucker
+
+  robot.hear /(^haha)/i, (response) ->
+    response.send "HAHAHAHAHAHAHA"
