@@ -11,7 +11,7 @@ laughs = [
 
 module.exports = (robot) ->
 
-  robot.hear /(^haha)/i, (msg) ->
+  robot.hear /(^haha)|(^.+lol$)/i, (msg) ->
     random = Math.floor(Math.random() * 10)
 
     # Only respond 80% of the time
