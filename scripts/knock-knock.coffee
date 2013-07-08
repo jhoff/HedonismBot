@@ -18,7 +18,7 @@ responses = [
 module.exports = (robot) ->
 
   # Start the knock knock joke
-  robot.respond /knock knock.*/i, (msg) ->
+  robot.respond /knock[\s,]+knock.*/i, (msg) ->
     robot.brain.set 'knockKnocking', 1
     msg.send "Who's there?"
 
