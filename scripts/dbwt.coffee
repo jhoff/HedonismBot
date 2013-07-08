@@ -47,3 +47,5 @@ module.exports = (robot) ->
     fucker = msg.random doug
     msg.send fucker
 
+  robot.hear /(oh snap)/i, (msg) ->
+    msg.send "http://24.media.tumblr.com/4156c7abe5f4e4414181f74bc25eabae/tumblr_mjnzg2b5Gs1rt6mq9o1_400.gif"
