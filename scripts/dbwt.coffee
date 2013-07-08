@@ -28,6 +28,7 @@ rude = [
     "Hey %, remember, awards become corroded, *friends* gather no dust.",
     "Aerodynamically the % shouldn't be able to fly, but the % doesn't know that so it goes on flying anyway",
     "%, sudo make me a sandwich!"
+    "%, when God gives you lemons, you find a new God"
 ]
 
 doug = [
