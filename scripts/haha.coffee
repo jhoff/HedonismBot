@@ -15,5 +15,5 @@ module.exports = (robot) ->
     msg.send lol
 
   robot.respond /want to hear something funny/i, (msg) ->
-    user = msg.user.name
+    user = msg.message.user.name
     msg.send "Fuck you #{user}"
