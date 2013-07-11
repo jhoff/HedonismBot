@@ -29,7 +29,8 @@ module.exports = function(robot) {
       }
 
       // Wildcard
-      if (name == '*') {
+      if ( ['*', 'everyone'].indexOf(namelc) >= 0 ) {
+        namelc = '*';
         name = 0; // Start counter
         queueFlag = true;
       }
