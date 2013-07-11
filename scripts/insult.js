@@ -10,18 +10,50 @@
 //Commands:
 //  :insult <name> - give <name> the what-for
 //
+//  :insult ~ <name> - Queue up an insult for next time the user says something
+//
 //Author:
 //  jhoff
 
 module.exports = function(robot) {
-	robot.respond( /insult (.*)/i, function(msg) {
-		var name = msg.match[ 1 ].trim(),
-			namelc = name.toLowerCase();
+	robot.respond( /insult (~)?\s*(.*)/i, function(msg) {
+		var queueFlag = msg.match[1],
+      name = msg.match[ 2 ].trim(),
+			namelc = name.toLowerCase(),
+      queue = robot.brain.get('insultQueue') || {};
+
 		if( !namelc.match( /^bomb.*/i ) ) {
-			if( [ 'yourself', 'you', robot.name, 'me' ].indexOf( namelc ) >= 0 ) name = msg.message.user.name;
-			insult( msg, name );
+			if( [ 'yourself', 'you', robot.name, 'me' ].indexOf( namelc ) >= 0 ) {
+        name = msg.message.user.name;
+        namelc = name.toLowerCase();
+      }
+
+      // Queue up the insult
+      if( queueFlag ){
+        queue[namelc] = name;
+        robot.brain.set('insultQueue', queue);
+      }
+      // Say immediately
+      else {
+			 insult( msg, name );
+      }
 		}
 	});
+
+  // Say queued insult
+  robot.hear( /./, function(msg){
+    var namelc = msg.message.user.name.toLowerCase(),
+        queue = robot.brain.get('insultQueue') || {};
+
+    if (typeof queue[namelc] != 'undefined') {
+      insult( msg, queue[namelc] );
+
+      // Remove from queue
+      delete queue[namelc];
+      robot.brain.set('insultQueue', queue);
+    }
+
+  });
 }
 
 var insult = function( msg, name ) {
@@ -106,5 +138,6 @@ var third = [
   "monster",
   "hound",
   "dragon",
-  "balloon"
+  "balloon",
+  "donkey fucker"
 ];
