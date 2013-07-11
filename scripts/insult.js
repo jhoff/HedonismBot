@@ -28,6 +28,12 @@ module.exports = function(robot) {
         namelc = name.toLowerCase();
       }
 
+      // Wildcard
+      if (name == '*') {
+        name = 0; // Start counter
+        queueFlag = true;
+      }
+
       // Queue up the insult
       if( queueFlag ){
         queue[namelc] = name;
@@ -45,10 +51,26 @@ module.exports = function(robot) {
     var namelc = msg.message.user.name.toLowerCase(),
         queue = robot.brain.get('insultQueue') || {};
 
-    if (typeof queue[namelc] != 'undefined') {
-      insult( msg, queue[namelc] );
+    // Handle wildcard
+    if (typeof queue['*'] != 'undefined') {
 
-      // Remove from queue
+      // Increment and wait (otherwise it'll respond as soon as the insult is queued)
+      if (queue['*'] == 0) {
+        queue['*'] = 1;
+        robot.brain.set('insultQueue', queue);
+      }
+
+      // Insult the immediate user
+      else {
+        insult( msg, msg.message.user.name );
+        delete queue['*'];
+        robot.brain.set('insultQueue', queue);
+      }
+    }
+
+    // Say queued insult for user
+    else if (typeof queue[namelc] != 'undefined') {
+      insult( msg, queue[namelc] );
       delete queue[namelc];
       robot.brain.set('insultQueue', queue);
     }
