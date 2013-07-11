@@ -35,7 +35,9 @@ rude = [
 doug = [
     "That. Mother. Fucker.",
     "Sonofabitch!",
-    "Pigfucker."
+    "Pigfucker.",
+    "Stupid dumshit goddamn muther fucker!",
+    "Uncle fucker!"
 ]
 
 module.exports = (robot) ->
