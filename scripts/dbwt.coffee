@@ -27,8 +27,9 @@ rude = [
     "Hi, %. You can have your panties back now.",
     "Hey %, remember, awards become corroded, *friends* gather no dust.",
     "Aerodynamically the % shouldn't be able to fly, but the % doesn't know that so it goes on flying anyway",
-    "%, sudo make me a sandwich!"
-    "%, when God gives you lemons, you find a new God"
+    "%, sudo make me a sandwich!",
+    "%, when God gives you lemons, you find a new God",
+    "% is here, time to make it rain"
 ]
 
 doug = [
@@ -41,7 +42,7 @@ module.exports = (robot) ->
   robot.enter (response) ->
     yomama = response.random rude
     robot.adapter.command('MODE', response.message.user.room, '+o', response.message.user.name);
-    response.send yomama.replace "%", response.message.user.name
+    response.send yomama.replace /%/g, response.message.user.name
 
   robot.hear /(doug)/i, (msg) ->
     fucker = msg.random doug
