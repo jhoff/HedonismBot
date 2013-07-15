@@ -139,7 +139,8 @@ var second = [
   "boner",
   "shart",
   "nut",
-  "sphincter"
+  "sphincter",
+  "oompa loompa"
 ];
 
 var third = [
@@ -162,5 +163,6 @@ var third = [
   "hound",
   "dragon",
   "balloon",
-  "donkey fucker"
+  "donkey fucker",
+  "monkey problem"
 ];
