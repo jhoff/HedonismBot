@@ -29,7 +29,12 @@ rude = [
     "Aerodynamically the % shouldn't be able to fly, but the % doesn't know that so it goes on flying anyway",
     "%, sudo make me a sandwich!",
     "%, when God gives you lemons, you find a new God",
-    "% is here, time to make it rain"
+    "% is here, time to make it rain",
+    "Hi %! Have you seen the copious volume of my ejaculate? Would you like to learn how to produce more and impress any girl?",
+    "%, my hot jack hammer rocked the hell out of Minnie. It could do you too ;)",
+    "Coming up next, %, 3-legged babes show off their tools! Be sure to stick around.",
+    "% is the obvious choice for adult pleasure.",
+    "Gushing, Exploding, Squirting and Dripping: welcome to #dwbt, %!"
 ]
 
 doug = [
