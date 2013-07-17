@@ -34,7 +34,11 @@ rude = [
     "%, my hot jack hammer rocked the hell out of Minnie. It could do you too ;)",
     "Coming up next, %, 3-legged babes show off their tools! Be sure to stick around.",
     "% is the obvious choice for adult pleasure.",
-    "Gushing, Exploding, Squirting and Dripping: welcome to #dwbt, %!"
+    "Gushing, Exploding, Squirting and Dripping: welcome to #dwbt, %!",
+    "%, who drives a ferrari and dates a supermodel",
+    "%, who drinks syrup from the bottle and eats his dandruff",
+    "Hey look, it's your favorite neighborhood mongoloid, %. *waves*",
+    "% when do you plan to introduce me to your parents? Or are you ashamed of me?!?"
 ]
 
 doug = [
