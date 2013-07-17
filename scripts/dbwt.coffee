@@ -38,7 +38,8 @@ rude = [
     "%, who drives a ferrari and dates a supermodel",
     "%, who drinks syrup from the bottle and eats his dandruff",
     "Hey look, it's your favorite neighborhood mongoloid, %. *waves*",
-    "% when do you plan to introduce me to your parents? Or are you ashamed of me?!?"
+    "% when do you plan to introduce me to your parents? Or are you ashamed of me?!?",
+    "Hello %! That's Dr. %, to the rest of you plebs."
 ]
 
 doug = [
