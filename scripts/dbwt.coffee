@@ -43,6 +43,15 @@ rude = [
     "%, welcome to the short bus."
 ]
 
+self = [
+  false, # don't say anything
+  "I'm back, didja miss me?",
+  "Let's get the party started",
+  "Hey everyone, where are all the hot chicks?",
+  "Hey fuckers",
+  false
+]
+
 doug = [
     "That. Mother. Fucker.",
     "Sonofabitch!",
@@ -53,9 +62,19 @@ doug = [
 
 module.exports = (robot) ->
   robot.enter (response) ->
-    yomama = response.random rude
-    robot.adapter.command('MODE', response.message.user.room, '+o', response.message.user.name);
-    response.send yomama.replace /%/g, response.message.user.name
+    name = response.message.user.name
+
+    # Hello myself
+    if name is robot.name
+      salutation = response.random self
+      if salutation
+        response.send salutation
+
+    # Hello others
+    else
+      yomama = response.random rude
+      robot.adapter.command('MODE', response.message.user.room, '+o', response.message.user.name);
+      response.send yomama.replace /%/g, response.message.user.name
 
   robot.hear /(doug)/i, (msg) ->
     fucker = msg.random doug
