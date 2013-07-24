@@ -44,12 +44,10 @@ rude = [
 ]
 
 self = [
-  false, # don't say anything
   "I'm back, didja miss me?",
   "Let's get the party started",
   "Hey everyone, where are all the hot chicks?",
-  "Hey fuckers",
-  false
+  "Hey fuckers"
 ]
 
 doug = [
