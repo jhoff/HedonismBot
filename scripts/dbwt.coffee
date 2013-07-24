@@ -40,14 +40,24 @@ rude = [
     "Hey look, it's your favorite neighborhood stalker, %. *waves*",
     "% when do you plan to introduce me to your parents? Or are you ashamed of me?!?",
     "Hello %! That's Dr. %, to the rest of you plebs.",
-    "%, welcome to the short bus."
+    "%, welcome to the short bus.",
+    "Mmmmphblmphbbllttt. Sorry, %, I was just fellating Mike. You'll have to wait your turn."
 ]
 
 self = [
   "I'm back, didja miss me?",
   "Let's get the party started",
   "Hey everyone, where are all the hot chicks?",
-  "Hey fuckers"
+  "Hey fuckers",
+  "HO HO HO MOTHERFUCKERS",
+  "I fuck your whole apartment",
+  "Go shit in the cape",
+  "I have no more clen socks :(",
+  "I'm back, and you're going to shit. your. vagina.",
+  "Mike is a disfiguredly fucked mountain goat",
+  "Sorry I'm late, my tuk tuk is in the shop",
+  "You fuck me in my healthy brain",
+  "Hi friends, I am wearing you on my dick"
 ]
 
 doug = [
