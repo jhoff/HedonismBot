@@ -37,9 +37,10 @@ rude = [
     "Gushing, Exploding, Squirting and Dripping: welcome to #dbwt, %!",
     "%, who drives a ferrari and dates a supermodel",
     "%, who drinks syrup from the bottle and eats his dandruff",
-    "Hey look, it's your favorite neighborhood mongoloid, %. *waves*",
+    "Hey look, it's your favorite neighborhood stalker, %. *waves*",
     "% when do you plan to introduce me to your parents? Or are you ashamed of me?!?",
-    "Hello %! That's Dr. %, to the rest of you plebs."
+    "Hello %! That's Dr. %, to the rest of you plebs.",
+    "%, welcome to the short bus."
 ]
 
 doug = [
