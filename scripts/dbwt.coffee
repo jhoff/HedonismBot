@@ -52,7 +52,7 @@ self = [
   "HO HO HO MOTHERFUCKERS",
   "I fuck your whole apartment",
   "Go shit in the cape",
-  "I have no more clen socks :(",
+  "I have no more clean socks :(",
   "I'm back, and you're going to shit. your. vagina.",
   "Mike is a disfiguredly fucked mountain goat",
   "Sorry I'm late, my tuk tuk is in the shop",
