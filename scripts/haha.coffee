@@ -6,7 +6,7 @@ laughs = [
   "HAHAHAHAHAHA",
   "LOL",
   "heh heh",
-  "http://i.imgur.com/WZ9v4k9.jpg"
+  "ROFLMAO"
 ]
 
 module.exports = (robot) ->
