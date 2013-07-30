@@ -93,7 +93,7 @@ module.exports = (robot) ->
 
   # Same as 'say dbwt <statement>'
   robot.respond /dbwt (.*)/i, (msg) ->
-    room = 'dbwt'
+    room = '#dbwt'
     statement = msg.match[1]
 
     envelope = {}
