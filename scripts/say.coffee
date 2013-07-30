@@ -7,9 +7,13 @@
 
 module.exports = (robot) ->
 
-  robot.respond /say (.+) (.+)/i, (msg) ->
+  robot.respond /say ([^\s]+) (.+)/i, (msg) ->
     room = msg.match[1]
     statement = msg.match[2]
 
+    envelope = {}
+    envelope.room = room
+    envelope.type = 'privmsg'
+
     if robot.adapter.say
-      robot.adapter.say(room, statement)
+      robot.adapter.say(envelope, statement)
