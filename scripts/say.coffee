@@ -13,7 +13,5 @@ module.exports = (robot) ->
 
     envelope = {}
     envelope.room = room
-    envelope.type = 'privmsg'
 
-    if robot.adapter.say
-      robot.adapter.say(envelope, statement)
+    robot.send(envelope, statement)

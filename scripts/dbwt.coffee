@@ -90,3 +90,13 @@ module.exports = (robot) ->
 
   robot.hear /(oh snap)/i, (msg) ->
     msg.send "http://24.media.tumblr.com/4156c7abe5f4e4414181f74bc25eabae/tumblr_mjnzg2b5Gs1rt6mq9o1_400.gif"
+
+  # Same as 'say dbwt <statement>'
+  robot.respond /dbwt (.*)/i, (msg) ->
+    room = 'dbwt'
+    statement = msg.match[1]
+
+    envelope = {}
+    envelope.room = room
+
+    robot.send(envelope, statement)
