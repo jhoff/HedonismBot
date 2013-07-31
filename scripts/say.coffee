@@ -11,13 +11,10 @@ module.exports = (robot) ->
     room = msg.match[1]
     message = msg.match[2]
 
-    envelope = {
-      'room': room,
-      'type': 'privmsg',
-      'done': true
-    }
+    envelope = {}
     envelope.room = room
     envelope.type = 'privmsg'
+    envelope.done = true
 
     robot.send(envelope, message)
 
