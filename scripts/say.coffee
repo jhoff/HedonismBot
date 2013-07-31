@@ -11,11 +11,8 @@ module.exports = (robot) ->
     room = msg.match[1]
     statement = msg.match[2]
 
-    # Add hash to room
-    if room.charAt(0) != '#'
-      room = '#'+ room
-
     envelope = {}
     envelope.room = room
+    envelope.type = 'privmsg'
 
     robot.send(envelope, statement)
