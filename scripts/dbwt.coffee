@@ -96,7 +96,12 @@ module.exports = (robot) ->
     room = '#dbwt'
     statement = msg.match[1]
 
-    envelope = {}
-    envelope.room = room
+    envelope = {
+      'room': room,
+      'type': 'privmsg',
+      'done': true
+    }
 
     robot.send(envelope, statement)
+    if msg.router.end
+      msg.router.end "Said #{statement}"
