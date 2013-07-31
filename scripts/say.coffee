@@ -9,10 +9,17 @@ module.exports = (robot) ->
 
   robot.respond /say ([^\s]+) (.+)/i, (msg) ->
     room = msg.match[1]
-    statement = msg.match[2]
+    message = msg.match[2]
 
-    envelope = {}
+    envelope = {
+      'room': room,
+      'type': 'privmsg',
+      'done': true
+    }
     envelope.room = room
     envelope.type = 'privmsg'
 
-    robot.send(envelope, statement)
+    robot.send(envelope, message)
+
+    if msg.router.end
+      msg.router.end "Said #{message}"
