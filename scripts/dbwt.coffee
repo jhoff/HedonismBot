@@ -68,6 +68,11 @@ doug = [
     "Uncle fucker!"
 ]
 
+ohsnap = [
+  "http://24.media.tumblr.com/4156c7abe5f4e4414181f74bc25eabae/tumblr_mjnzg2b5Gs1rt6mq9o1_400.gif",
+  "http://gifs.gifbin.com/072011/1311094201_girls_arm_snaps_during_arm_wrestling.gif"
+]
+
 # Generic response when he hears his name
 selfResponse = [
     "Come at me bro!",
@@ -101,7 +106,8 @@ module.exports = (robot) ->
     msg.send fucker
 
   robot.hear /(oh snap)/i, (msg) ->
-    msg.send "http://24.media.tumblr.com/4156c7abe5f4e4414181f74bc25eabae/tumblr_mjnzg2b5Gs1rt6mq9o1_400.gif"
+    hootyhoo = msg.random ohsnap
+    msg.send hootyhoo
 
   # When he hears his name
   robot.hear /(^|\s)h.*b(ot)?(\s|$)/i, (msg) ->
