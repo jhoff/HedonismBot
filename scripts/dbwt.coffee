@@ -68,6 +68,18 @@ doug = [
     "Uncle fucker!"
 ]
 
+# Generic response when he hears his name
+selfResponse = [
+    "Come at me bro!",
+    "I'm fine, what's up with you?",
+    "You rang?",
+    "That's my name, don't wear it out.",
+    "I'm right here.",
+    "All your base belong to me",
+    "I watch you while you're sleeping",
+    "Just give me a reason. Just. One. Reason."
+]
+
 module.exports = (robot) ->
   robot.enter (response) ->
     name = response.message.user.name
@@ -90,6 +102,10 @@ module.exports = (robot) ->
 
   robot.hear /(oh snap)/i, (msg) ->
     msg.send "http://24.media.tumblr.com/4156c7abe5f4e4414181f74bc25eabae/tumblr_mjnzg2b5Gs1rt6mq9o1_400.gif"
+
+  # When he hears his name
+  robot.hear /(^|\s)h.*b(ot)?(\s|$)/i, (msg) ->
+    msg.send msg.random selfResponse
 
   # Same as 'say dbwt <statement>'
   robot.respond /dbwt (.*)/i, (msg) ->
