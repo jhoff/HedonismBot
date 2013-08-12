@@ -76,7 +76,8 @@ ohsnap = [
 # Generic response when he hears his name
 selfResponse = [
     "Come at me bro!",
-    "I'm fine, what's up with you?",
+    "Yo",
+    "Word",
     "You rang?",
     "That's my name, don't wear it out.",
     "I'm right here.",
@@ -110,7 +111,7 @@ module.exports = (robot) ->
     msg.send hootyhoo
 
   # When he hears his name
-  robot.hear /(^|\s)h.*b(ot)?(\s|$)/i, (msg) ->
+  robot.hear /\bh(edonism)?b(ot)?\b/i, (msg) ->
     msg.send msg.random selfResponse
 
   # Same as 'say dbwt <statement>'
