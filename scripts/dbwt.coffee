@@ -68,6 +68,24 @@ doug = [
     "Uncle fucker!"
 ]
 
+ohsnap = [
+  "http://24.media.tumblr.com/4156c7abe5f4e4414181f74bc25eabae/tumblr_mjnzg2b5Gs1rt6mq9o1_400.gif",
+  "http://gifs.gifbin.com/072011/1311094201_girls_arm_snaps_during_arm_wrestling.gif"
+]
+
+# Generic response when he hears his name
+selfResponse = [
+    "Come at me bro!",
+    "Yo",
+    "Word",
+    "You rang?",
+    "That's my name, don't wear it out.",
+    "I'm right here.",
+    "All your base belong to me",
+    "I watch you while you're sleeping",
+    "Just give me a reason. Just. One. Reason."
+]
+
 module.exports = (robot) ->
   robot.enter (response) ->
     name = response.message.user.name
@@ -89,4 +107,24 @@ module.exports = (robot) ->
     msg.send fucker
 
   robot.hear /(oh snap)/i, (msg) ->
-    msg.send "http://24.media.tumblr.com/4156c7abe5f4e4414181f74bc25eabae/tumblr_mjnzg2b5Gs1rt6mq9o1_400.gif"
+    hootyhoo = msg.random ohsnap
+    msg.send hootyhoo
+
+  # When he hears his name
+  robot.hear /\bh(edonism)?b(ot)?\b/i, (msg) ->
+    msg.send msg.random selfResponse
+
+  # Same as 'say dbwt <statement>'
+  robot.respond /dbwt (.*)/i, (msg) ->
+    room = '#dbwt'
+    statement = msg.match[1]
+
+    envelope = {
+      'room': room,
+      'type': 'privmsg',
+      'done': true
+    }
+
+    robot.send(envelope, statement)
+    if msg.router.end
+      msg.router.end "Said #{statement}"
