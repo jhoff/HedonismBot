@@ -124,7 +124,7 @@ module.exports = (robot) ->
       <dd class="#{className}">
         <time>#{time}</time>
         <span class="room"><a href="/history2/?room=#{roomEncoded}">#{message.room}</a></span>
-        <span class="message">#{message}</span>
+        <span class="message">#{text}</span>
       </dd>
       """
 
