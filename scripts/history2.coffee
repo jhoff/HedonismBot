@@ -212,7 +212,7 @@ module.exports = (robot) ->
 </head>
 <body>
 
-<h1>Hubot transcripts for #{room}</h1>
+<h1>Hubot transcripts for #{roomTitle}</h1>
 
 <dl>
   #{listHtml}
