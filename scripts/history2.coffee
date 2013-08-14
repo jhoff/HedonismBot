@@ -123,7 +123,10 @@ module.exports = (robot) ->
       roomEncoded = encodeURIComponent(message.room)
       roomHtmlLink = ""
       if !room
-        roomHtmlLink = "<span class='room'><a href='/history2/?room=#{roomEncoded}''>#{message.room}</a></span>"
+        if !message.room
+          roomHtmlLink = "<span class='room to-bot'>#{robot.name}</span>"
+        else
+          roomHtmlLink = "<span class='room'><a href='/history2/?room=#{roomEncoded}''>#{message.room}</a></span>"
 
       # List
       listHtml += """
@@ -187,6 +190,9 @@ module.exports = (robot) ->
     }
     dd .room:before {
       content: 'in ';
+    }
+    dd .room.to-bot:before {
+      content: 'to ';
     }
     dd .message {
       display: block;
