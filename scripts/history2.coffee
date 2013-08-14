@@ -180,27 +180,36 @@ module.exports = (robot) ->
       margin: 8px 0;
       padding: 0;
     }
+
+    /* Mobile styles */
     dt {
       font-weight: bold;
-      padding: 3px 0;
+      padding: 3px 5px;
       margin: 5px 0 0;
       font-family: courier;
       white-space: nowrap;
+      background: #BDBDBD;
     }
     dd {
       margin: 3px 0 0 10px;
       padding: 3px 0 3px 3px;
     }
     dd time {
-      margin: 3px 0;
+      margin: -2em 0 0 #{longestName}em;
+      padding-left: 10px;
       font-style: italic;
       font-size: 12px;
       display: block;
-      float: left;
     }
     dd .room {
       font-size: 12px;
-      margin: 0 5px;
+      margin: -1.3em 5px 0 0;
+      float: right;
+    }
+    dd .message {
+      display: block;
+      clear: both;
+      margin-top: 3px;
     }
     dd .room:before {
       content: 'in ';
@@ -208,11 +217,18 @@ module.exports = (robot) ->
     dd .room.to-bot:before {
       content: 'to ';
     }
-    dd .message {
-      display: block;
-      clear: both;
-      margin-top: 3px;
+
+    /* Only show the first time/room for a user's list of messages, for mobile */
+    dt ~ dd time,
+    dt ~ dd .room {
+      display: none;
     }
+    dt + dd time,
+    dt + dd .room {
+      display: block;
+    }
+
+    /* Desktop styles */
     @media (min-width: 650px) {
       dt {
         float: left;
@@ -224,6 +240,7 @@ module.exports = (robot) ->
         padding: 3px 0;
         margin: 0;
         font-family: courier;
+        background: transparent;
       }
       dt:after {
         content: ':';
@@ -233,6 +250,17 @@ module.exports = (robot) ->
         margin: 0 0 0 #{longestName}em;
         padding: 3px 0 3px 3px;
         border-bottom: 1px solid #B5BBC0;
+      }
+      dd time {
+        margin: 3px 0;
+        padding: 0;
+        float: left;
+        display: inline-block !important;
+      }
+      dd .room {
+        margin: 0 5px;
+        float: none;
+        display: inline-block !important;
       }
     }
   </style>
