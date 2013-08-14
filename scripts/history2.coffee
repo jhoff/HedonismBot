@@ -68,8 +68,8 @@ module.exports = (robot) ->
   # Log history
   robot.hear /(.*)/i, (msg) ->
     if msg.match[1] != ''
-      user = msg.user
-      #msg.send JSON.stringify msg.message
+      user = msg.message.user
+      msg.send JSON.stringify msg.message
       historyentry = new History2Entry(user.name, msg.match[1], msg.message.room, user.type)
       history.add historyentry
 
