@@ -97,7 +97,7 @@ module.exports = (robot) ->
     room = query.room
     roomTitle = "all rooms"
     if room
-      roomTitle = "#"+ room
+      roomTitle = room
 
     #
     # Build list HTML
