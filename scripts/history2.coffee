@@ -145,7 +145,7 @@ module.exports = (robot) ->
       listHtml += """
       #{userHTML}
       <dd class="#{className}">
-        <time>#{time}</time>
+        <time datetime="#{message.time}">#{time}</time>
         #{roomHtmlLink}
         <span class="message">#{text}</span>
       </dd>
