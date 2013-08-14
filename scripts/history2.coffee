@@ -117,7 +117,7 @@ module.exports = (robot) ->
 
       # Format message text
       text = message.message
-      text = text.replace(/(https?:\/\/.*?)(\s|$)/ig, '<a href="$1">$1</a>$2') # link URLs
+      text = text.replace(/(https?:\/\/.*?)(\s|$)/ig, '<a href="$1" target="_blank">$1</a>$2') # link URLs
 
       # Room HTML line (only show if you're not viewing a specific room)
       roomEncoded = encodeURIComponent(message.room)
