@@ -114,13 +114,17 @@ module.exports = (robot) ->
       className = (oddEven == 1) ? 'odd' : 'even'
       oddEven *= -1;
 
+      # Format message text
+      text = message.message
+      text = text.replace(/(https?:\/\/.*?)(\s|$)/ig, '<a href="$1">$1</a>$2') # link URLs
+
       # List
       listHtml += """
       <dt class="#{className}">#{message.user}</dt>
       <dd class="#{className}">
         <time>#{time}</time>
         <span class="room"><a href="/history2/?room=#{roomEncoded}">#{message.room}</a></span>
-        <span class="message">#{message.message}</span>
+        <span class="message">#{message}</span>
       </dd>
       """
 
