@@ -95,7 +95,9 @@ module.exports = (robot) ->
 
     # Room
     room = query.room
-    roomTitle = (room) ? '#'+ room : 'all rooms'
+    roomTitle = "all rooms"
+    if room
+      roomTitle = "#"+ room
 
     #
     # Build list HTML
@@ -104,7 +106,6 @@ module.exports = (robot) ->
     for i in [history.cache.length - 1..0] by -1
       message = history.cache[i]
       time = moment(message.time).fromNow()
-      roomEncoded = encodeURIComponent(message.room)
 
       # From the correct room?
       if room and room != message.room
@@ -118,12 +119,18 @@ module.exports = (robot) ->
       text = message.message
       text = text.replace(/(https?:\/\/.*?)(\s|$)/ig, '<a href="$1">$1</a>$2') # link URLs
 
+      # Room HTML line (only show if you're not viewing a specific room)
+      roomEncoded = encodeURIComponent(message.room)
+      roomHtmlLink = ""
+      if !room
+        roomHtmlLink = "<span class='room'><a href='/history2/?room=#{roomEncoded}''>#{message.room}</a></span>"
+
       # List
       listHtml += """
       <dt class="#{className}">#{message.user}</dt>
       <dd class="#{className}">
         <time>#{time}</time>
-        <span class="room"><a href="/history2/?room=#{roomEncoded}">#{message.room}</a></span>
+        #{roomHtmlLink}
         <span class="message">#{text}</span>
       </dd>
       """
