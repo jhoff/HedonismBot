@@ -48,7 +48,7 @@ class History2
     return "[#{event.hours}:#{event.minutes}] \##{event.room} <#{event.user}>: #{event.message}"
 
 class History2Entry
-  constructor: (@user, @message, @room) ->
+  constructor: (@user, @message, @room, @type) ->
     @time = new Date()
     @hours = @time.getHours()
     @minutes = @time.getMinutes()
@@ -68,7 +68,9 @@ module.exports = (robot) ->
   # Log history
   robot.hear /(.*)/i, (msg) ->
     if msg.match[1] != ''
-      historyentry = new History2Entry(msg.message.user.name, msg.match[1], msg.message.room)
+      user = msg.user
+      #msg.send JSON.stringify msg.message
+      historyentry = new History2Entry(user.name, msg.match[1], msg.message.room, user.type)
       history.add historyentry
 
   # Show history
@@ -137,6 +139,7 @@ module.exports = (robot) ->
       # List
       listHtml += """
       #{userHTML}
+      <!-- type: #{message.type} -->
       <dd class="#{className}">
         <time>#{time}</time>
         #{roomHtmlLink}
