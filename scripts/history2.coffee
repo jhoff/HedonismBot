@@ -103,6 +103,7 @@ module.exports = (robot) ->
     # Build list HTML
     #
     oddEven = 1
+    lastUser = false
     for i in [history.cache.length - 1..0] by -1
       message = history.cache[i]
       time = moment(message.time).fromNow()
@@ -128,9 +129,14 @@ module.exports = (robot) ->
         else
           roomHtmlLink = "<span class='room'><a href='/history2/?room=#{roomEncoded}''>#{message.room}</a></span>"
 
+      # Don't include duplicate user
+      userHTML = ""
+      if lastUser != message.user
+        userHTML = "<dt class='#{className}''>#{message.user}</dt>"
+
       # List
       listHtml += """
-      <dt class="#{className}">#{message.user}</dt>
+      #{userHTML}
       <dd class="#{className}">
         <time>#{time}</time>
         #{roomHtmlLink}
@@ -142,6 +148,7 @@ module.exports = (robot) ->
       if message.user.length > longestName and message.user.length < 15
         longestName = message.user.length
 
+      lastUser = message.user;
     #
     # Build entire HTML page
     #
