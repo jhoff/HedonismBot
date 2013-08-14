@@ -61,7 +61,7 @@ module.exports = (robot) ->
     lines_to_keep:  process.env.HUBOT_HISTORY_LINES
 
   unless options.lines_to_keep
-    options.lines_to_keep = 10
+    options.lines_to_keep = 500
 
   history = new History2(robot, options.lines_to_keep)
 
