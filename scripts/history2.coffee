@@ -48,7 +48,7 @@ class History2
     return "[#{event.hours}:#{event.minutes}] \##{event.room} <#{event.user}>: #{event.message}"
 
 class History2Entry
-  constructor: (@user, @message, @room, @type) ->
+  constructor: (@user, @message, @room) ->
     @time = new Date()
     @hours = @time.getHours()
     @minutes = @time.getMinutes()
@@ -69,8 +69,8 @@ module.exports = (robot) ->
   robot.hear /(.*)/i, (msg) ->
     if msg.match[1] != ''
       user = msg.message.user
-      #msg.send JSON.stringify msg.message
-      historyentry = new History2Entry(user.name, msg.match[1], msg.message.room, user.type)
+      room = msg.message.room
+      historyentry = new History2Entry(user.name, msg.match[1], room)
       history.add historyentry
 
   # Show history
@@ -104,19 +104,18 @@ module.exports = (robot) ->
     #
     # Build list HTML
     #
-    oddEven = 1
+    oddEven = -1
     lastUser = false
     for i in [history.cache.length - 1..0] by -1
       message = history.cache[i]
       time = moment(message.time).fromNow()
 
+      # Is this the same user as the last row
+      sameUser = (lastUser == message.user)
+
       # From the correct room?
       if room and room != message.room
         continue
-
-      # Zebra rows
-      className = (oddEven == 1) ? 'odd' : 'even'
-      oddEven *= -1;
 
       # Format message text
       text = message.message
@@ -131,15 +130,20 @@ module.exports = (robot) ->
         else
           roomHtmlLink = "<span class='room'><a href='/history2/?room=#{roomEncoded}''>#{message.room}</a></span>"
 
+
+      # Zebra rows
+      if !sameUser
+        oddEven *= -1;
+      className = if (oddEven == 1) then "odd" else "even"
+
       # Don't include duplicate user
       userHTML = ""
-      if lastUser != message.user
+      if !sameUser
         userHTML = "<dt class='#{className}''>#{message.user}</dt>"
 
       # List
       listHtml += """
       #{userHTML}
-      <!-- type: #{message.type} -->
       <dd class="#{className}">
         <time>#{time}</time>
         #{roomHtmlLink}
