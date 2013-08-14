@@ -27,7 +27,8 @@
     "hubot":         "2.x.x",
     "hubot-scripts": "2.x.x",
     "hubot-irc":     "0.x.x",
-    "xml2js":        "0.2.x"
+    "xml2js":        "0.2.x",
+    "moment":        "2.1"
   },
 
   "engines": {
