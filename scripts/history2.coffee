@@ -109,6 +109,7 @@ module.exports = (robot) ->
     lastRoom = false
     for i in [history.cache.length - 1..0] by -1
       message = history.cache[i]
+      user = message.user
       time = moment(message.time).fromNow()
 
       # Is this the same user as the last row
