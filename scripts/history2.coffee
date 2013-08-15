@@ -11,6 +11,7 @@
 # Commands:
 #   hubot show [<lines> lines of] history - Shows <lines> of history, otherwise all history
 #   hubot clear history - Clears the history
+#   what did I miss - Show the last 5 lines of history
 #
 # Author:
 #   jgillick (based on History, by wubr)
@@ -32,11 +33,25 @@ class History2
       @cache.shift()
     @robot.brain.data.history2 = @cache
 
-  show: (lines) ->
+  show: (lines, inRoom) ->
     if (lines > @cache.length)
       lines = @cache.length
-    reply = 'Showing ' + lines + ' lines of history:\n'
-    reply = reply + @entryToString(message) + '\n' for message in @cache[-lines..].reverse()
+    reply = 'Showing the last ' + lines + ' lines of history:\n'
+
+    count = 0
+    for i in [@cache.length - 1..0] by -1
+      message = @cache[i]
+
+      # Not in the room we're interested in
+      if inRoom and inRoom != message.room
+        continue
+
+      reply += @entryToString(message) + '\n'
+
+      count++
+      if count >= lines
+        break
+
     return reply
 
   clear: ->
@@ -71,6 +86,10 @@ module.exports = (robot) ->
       room = msg.message.room
       historyentry = new History2Entry(user.name, msg.match[1], room)
       history.add historyentry
+
+  # Last five lines of history
+  robot.hear /what did I miss/i, (msg) ->
+    msg.send history.show(5, msg.message.room)
 
   # Show history
   robot.respond /show ((\d+) lines of )?history2/i, (msg) ->
@@ -139,7 +158,7 @@ module.exports = (robot) ->
       rowOddEven *= -1
 
       className = if (userOddEven == 1) then "user-odd" else "user-even"
-      className = if (rowOddEven == 1) then "row-odd" else "row-even"
+      className += if (rowOddEven == 1) then "row-odd" else "row-even"
 
       # Don't include duplicate user
       userHTML = ""
