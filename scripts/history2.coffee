@@ -11,7 +11,6 @@
 # Commands:
 #   hubot show [<lines> lines of] history - Shows <lines> of history, otherwise all history
 #   hubot clear history - Clears the history
-#   hubot trim history - Clears all by the last 1,000 lines of history
 #
 # Author:
 #   jgillick (based on History, by wubr)
