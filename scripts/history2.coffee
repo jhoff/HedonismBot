@@ -103,14 +103,16 @@ module.exports = (robot) ->
     #
     # Build list HTML
     #
-    oddEven = -1
+    userOddEven = -1
+    rowOddEven = -1
     lastUser = false
+    lastRoom = false
     for i in [history.cache.length - 1..0] by -1
       message = history.cache[i]
       time = moment(message.time).fromNow()
 
       # Is this the same user as the last row
-      sameUser = (lastUser == message.user)
+      sameUser = (lastUser == user && lastRoom == message.room)
 
       # From the correct room?
       if room and room != message.room
@@ -132,8 +134,11 @@ module.exports = (robot) ->
 
       # Zebra rows
       if !sameUser
-        oddEven *= -1;
-      className = if (oddEven == 1) then "odd" else "even"
+        userOddEven *= -1;
+      rowOddEven *= -1
+
+      className = if (userOddEven == 1) then "user-odd" else "user-even"
+      className = if (rowOddEven == 1) then "row-odd" else "row-even"
 
       # Don't include duplicate user
       userHTML = ""
@@ -144,8 +149,10 @@ module.exports = (robot) ->
       listHtml += """
       #{userHTML}
       <dd class="#{className}">
-        <time datetime="#{message.time}">#{time}</time>
-        #{roomHtmlLink}
+        <span class="meta">
+          <time datetime="#{message.time}">#{time}</time>
+          #{roomHtmlLink}
+        </span>
         <span class="message">#{text}</span>
       </dd>
       """
@@ -154,7 +161,8 @@ module.exports = (robot) ->
       if message.user.length > longestName and message.user.length < 15
         longestName = message.user.length
 
-      lastUser = message.user;
+      lastUser = message.user
+      lastRoom = message.room
     #
     # Build entire HTML page
     #
@@ -194,11 +202,12 @@ module.exports = (robot) ->
       padding: 3px 0 3px 3px;
     }
     dd time {
-      margin: -2em 0 0 #{longestName}em;
-      padding-left: 10px;
+      margin: -2em 0 0 0;
       font-style: italic;
       font-size: 12px;
       display: block;
+      width: 100%;
+      text-align: center;
     }
     dd .room {
       font-size: 12px;
@@ -207,7 +216,6 @@ module.exports = (robot) ->
     }
     dd .message {
       display: block;
-      clear: both;
       margin-top: 3px;
     }
     dd .room:before {
@@ -229,37 +237,26 @@ module.exports = (robot) ->
 
     /* Desktop styles */
     @media (min-width: 650px) {
-      dt {
-        float: left;
-        clear: both;
-        width: #{longestName}em;
-        overflow: hidden;
-        text-align: right;
-        font-weight: bold;
-        padding: 3px 0;
-        margin: 0;
-        font-family: courier;
-        background: transparent;
-      }
-      dt:after {
-        content: ':';
-        padding: 0 3px 0 0;
-      }
       dd {
-        margin: 0 0 0 #{longestName}em;
-        padding: 3px 0 3px 3px;
-        border-bottom: 1px solid #B5BBC0;
+        position: relative;
+        border-top: 1px solid #B5BBC0;
+      }
+      dt + dd {
+        border: none;
       }
       dd time {
-        margin: 3px 0;
+        margin: 0 0 7px 7px;
         padding: 0;
-        float: left;
+        float: right;
+        width: auto;
+        color: #919AA3;
         display: inline-block !important;
       }
       dd .room {
-        margin: 0 5px;
-        float: none;
-        display: inline-block !important;
+        margin: 0;
+        position: absolute;
+        top: -1.8em;
+        right: 5px;
       }
     }
   </style>
