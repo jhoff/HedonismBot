@@ -14,7 +14,7 @@
 #   eliperkins
 
 module.exports = (robot) ->
-  robot.respond /stock (info|price|quote) for @?([\w .-_]+)/i, (msg) ->
+  robot.respond /stock( info| price| quote)?( for)? @?([\w .-_]+)/i, (msg) ->
     ticker = escape(msg.match[2])
     msg.http('http://finance.google.com/finance/info?client=ig&q=' + ticker)
       .get() (err, res, body) ->
