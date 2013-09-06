@@ -15,7 +15,7 @@
 
 module.exports = (robot) ->
   robot.respond /stock( info| price| quote)?( for)? @?([\w .-_]+)/i, (msg) ->
-    ticker = escape(msg.match[2])
+    ticker = escape(msg.match[3])
     msg.http('http://finance.google.com/finance/info?client=ig&q=' + ticker)
       .get() (err, res, body) ->
         result = JSON.parse(body.replace(/\/\/ /, ''))
@@ -23,7 +23,6 @@ module.exports = (robot) ->
         msg.send result[0].e + ":" + result[0].t + " - " + result[0].l_cur + " (#{result[0].c})"
 
   robot.respond /stock$/i, (msg) ->
-    ticker = escape(msg.match[2])
     msg.http('http://finance.google.com/finance/info?client=ig&q=lnkd')
       .get() (err, res, body) ->
         result = JSON.parse(body.replace(/\/\/ /, ''))
