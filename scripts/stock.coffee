@@ -20,7 +20,7 @@ module.exports = (robot) ->
       .get() (err, res, body) ->
         result = JSON.parse(body.replace(/\/\/ /, ''))
 
-        msg.send ticker + ": " + result[0].l_cur + " (#{result[0].c})"
+        msg.send result[0].e + ":" + result[0].t + " - " + result[0].l_cur + " (#{result[0].c})"
 
   robot.respond /stock$/i, (msg) ->
     ticker = escape(msg.match[2])
@@ -28,4 +28,4 @@ module.exports = (robot) ->
       .get() (err, res, body) ->
         result = JSON.parse(body.replace(/\/\/ /, ''))
 
-        msg.send "lnkd: " + result[0].l_cur + " (#{result[0].c})"
+        msg.send result[0].e + ":" + result[0].t + " - " + result[0].l_cur + " (#{result[0].c})"
