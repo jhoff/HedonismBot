@@ -78,8 +78,6 @@ selfResponse = [
     "Come at me bro!",
     "Yo",
     "Word",
-    "You rang?",
-    "That's my name, don't wear it out.",
     "I'm right here.",
     "All your base belong to me",
     "I watch you while you're sleeping",
