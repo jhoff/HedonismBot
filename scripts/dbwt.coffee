@@ -41,7 +41,8 @@ rude = [
     "% when do you plan to introduce me to your parents? Or are you ashamed of me?!?",
     "Hello %! That's Dr. %, to the rest of you plebs.",
     "%, welcome to the short bus.",
-    "Mmmmphblmphbbllttt. Sorry, %, I was just fellating Mike. You'll have to wait your turn."
+    "Mmmmphblmphbbllttt. Sorry, %, I was just fellating Mike. You'll have to wait your turn.",
+    "*plirp* *plorp* *dlorp* Mak made some room for in you here, %!"
 ]
 
 self = [
