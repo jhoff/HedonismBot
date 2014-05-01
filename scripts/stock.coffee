@@ -27,4 +27,6 @@ module.exports = (robot) ->
       .get() (err, res, body) ->
         result = JSON.parse(body.replace(/\/\/ /, ''))
 
-        msg.send result[0].e + ":" + result[0].t + " - " + result[0].l_cur + " (#{result[0].c})"
+        message = result[0].e + ":" + result[0].t + " - " + result[0].l_cur + " (#{result[0].c})"
+        message += " | After hours: " + result[0].el_cur if result[0].el_cur
+        msg.send message
