@@ -110,7 +110,7 @@ module.exports = (robot) ->
     msg.send hootyhoo
 
   # When he hears his name
-  robot.hear /\bh(edonism)?b(ot)?\b/i, (msg) ->
+  robot.hear /\bhedonismbot?\b/i, (msg) ->
     msg.send msg.random selfResponse
 
   # Same as 'say dbwt <statement>'
