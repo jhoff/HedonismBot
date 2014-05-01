@@ -10,7 +10,7 @@ laughs = [
 ]
 
 module.exports = (robot) ->
-  robot.hear /(^haha)|(^.+lol$)/i, (msg) ->
+  robot.hear /(^hahaha)|(^.+lolo)/i, (msg) ->
     lol = msg.random laughs
     msg.send lol
 
