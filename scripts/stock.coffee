@@ -14,19 +14,19 @@
 #   eliperkins
 
 module.exports = (robot) ->
-  robot.respond /stock( info| price| quote)?( for)? @?([\w .-_]+)/i, (msg) ->
-    ticker = escape(msg.match[3])
-    msg.http('http://finance.google.com/finance/info?client=ig&q=' + ticker)
-      .get() (err, res, body) ->
-        result = JSON.parse(body.replace(/\/\/ /, ''))
 
-        msg.send result[0].e + ":" + result[0].t + " - " + result[0].l_cur + " (#{result[0].c})"
-
-  robot.respond /stock$/i, (msg) ->
-    msg.http('http://finance.google.com/finance/info?client=ig&q=lnkd')
+  checkStock = (symbol) ->
+    symbol = escape(symbol)
+    msg.http('http://finance.google.com/finance/info?client=ig&q=' + symbol)
       .get() (err, res, body) ->
         result = JSON.parse(body.replace(/\/\/ /, ''))
 
         message = result[0].e + ":" + result[0].t + " - " + result[0].l_cur + " (#{result[0].c})"
         message += " | After hours: " + result[0].el_cur if result[0].el_cur
         msg.send message
+
+  robot.respond /stock( info| price| quote)?( for)? @?([\w .-_]+)/i, (msg) ->
+    checkStock msg.match[3]    
+
+  robot.respond /stock$/i, (msg) ->
+    checkStock "lnkd"
