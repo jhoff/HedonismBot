@@ -30,4 +30,10 @@ module.exports = (robot) ->
     checkStock msg.match[3], msg    
 
   robot.respond /stock$/i, (msg) ->
+    checkStock "aapl", msg
+    checkStock "f",   msg
+    checkStock "fb",   msg
+    checkStock "goog", msg
     checkStock "lnkd", msg
+    checkStock "tsla", msg
+    checkStock "twtr", msg
