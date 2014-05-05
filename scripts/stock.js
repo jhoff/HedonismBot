@@ -22,7 +22,7 @@ module.exports = function(robot) {
       result = JSON.parse(body.replace(/\/\/ /, ''));
       output = [];
       for (var i = 0; i < result.length; i++) {
-        output[] = '' + result[i].t + ' - ' + result[i].l_cur + ' (' + result[i].c + ')';
+        output.push( '' + result[i].t + ' - ' + result[i].l_cur + ' (' + result[i].c + ')' );
       }
       msg.send( output.join( ' | ' ) );
     });
