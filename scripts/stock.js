@@ -28,7 +28,7 @@ module.exports = function(robot) {
     });
   };
 
-  robot.respond(/stock( info| price| quote)?( for)? @?([\w .-_]+)/i, function(msg) {
+  robot.respond(/stock( info| price| quote)?( for)? @?([\w .-_,]+)/i, function(msg) {
     checkStock(msg.match[3], msg);
   });
 
