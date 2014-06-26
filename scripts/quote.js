@@ -16,7 +16,7 @@ module.exports = function(robot) {
     }
   });
 
-  robot.hear(/quote ([^\s]+) ([\w]+)/, function(msg) {
+  robot.hear(/quote ([^\s]+) ([\w\s]+)/, function(msg) {
     var user = msg.match[1];
     if (!quotes.hasOwnProperty(user)) {
       quotes[user] = [];
