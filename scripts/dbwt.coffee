@@ -101,7 +101,7 @@ module.exports = (robot) ->
       robot.adapter.command('MODE', response.message.user.room, '+o', response.message.user.name);
       response.send yomama.replace /%/g, response.message.user.name
 
-  robot.hear /(doug)/i, (msg) ->
+  robot.hear /\b(doug)\b/i, (msg) ->
     fucker = msg.random doug
     msg.send fucker
 
