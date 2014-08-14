@@ -14,7 +14,7 @@
 //   eliperkins
 
 module.exports = function(robot) {
-  robot.respond(/yeeaahh/i, function(msg) {
+  robot.respond(/[y]+[e]+[a]+a[h]+/i, function(msg) {
     msg.send('(•_•)');
     msg.send('( •_•)>⌐■-■');
     msg.send('(⌐■_■)');
