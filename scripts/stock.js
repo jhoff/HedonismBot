@@ -19,6 +19,10 @@ module.exports = function(robot) {
     symbol = escape(symbol);
     msg.http('http://finance.google.com/finance/info?client=ig&q=' + symbol).get()(function(err, res, body) {
       var message, result;
+      if (err) {
+        msg.send('Stop fucking around, Mak...');
+        return;
+      }
       result = JSON.parse(body.replace(/\/\/ /, ''));
       output = [];
       for (var i = 0; i < result.length; i++) {
